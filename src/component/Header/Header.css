@@ -1,0 +1,30 @@
+.Header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8e6e0;
+    color: #c48b9f;
+    height: 10vh;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.Header h1 {
+    font-size: 52px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin: 0;
+    position: relative;
+}
+
+.Header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #e8c1c1;
+    border-radius: 2px;
+}

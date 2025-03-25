@@ -1,8 +1,16 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import Header from './component/Header/Header';
+import Footer from './component/Footer/Footer';
+import List from './component/List/List';
+import './App.css';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+function App() {
+  return (
+    <div className="App">
+      <Header />
+      <List />
+      <Footer />
+    </div>
+  );
+}
+
+export default App;

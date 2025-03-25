@@ -1,0 +1,25 @@
+.FilterBar {
+    margin-bottom: 20px;
+}
+
+.FilterBar input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 30px;
+    border: 1px solid #f0d4d4;
+    background-color: #fff;
+    font-size: 16px;
+    color: #7d5a5a;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.FilterBar input:focus {
+    outline: none;
+    border-color: #e8c1c1;
+    box-shadow: 0 0 0 3px rgba(232, 193, 193, 0.2);
+}
+
+.FilterBar input::placeholder {
+    color: #bfa9a9;
+}

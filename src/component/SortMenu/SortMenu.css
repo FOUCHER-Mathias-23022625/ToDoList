@@ -1,0 +1,52 @@
+.SortMenu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(196, 139, 159, 0.15);
+    z-index: 10;
+    min-width: 200px;
+    animation: fadeIn 0.3s ease-out;
+    overflow: hidden;
+    margin-top: 8px;
+    border: 1px solid #f0d4d4;
+}
+
+.SortMenu button {
+    background-color: transparent;
+    color: #9d7a7a;
+    border: none;
+    padding: 14px 18px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #f8f2f4;
+}
+
+.SortMenu button:last-child {
+    border-bottom: none;
+}
+
+.SortMenu button:hover {
+    background-color: #f9f3f0;
+}
+
+.SortMenu button.active {
+    background-color: #f8f2f4;
+    color: #c48b9f;
+    font-weight: 500;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

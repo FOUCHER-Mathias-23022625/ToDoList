@@ -1,0 +1,88 @@
+.StartupModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(248, 230, 224, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.StartupModalContent {
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(196, 139, 159, 0.2);
+    animation: slideIn 0.5s ease-out;
+}
+
+.StartupModalContent h2 {
+    color: #c48b9f;
+    font-weight: 400;
+    font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.StartupModalContent p {
+    color: #9d7a7a;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.StartupButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.StartupButtons button {
+    padding: 16px;
+    font-size: 17px;
+    background-color: #f8e6e0;
+    color: #7d5a5a;
+    border-radius: 12px;
+    border: 1px solid #f0d4d4;
+    transition: all 0.3s ease;
+}
+
+.StartupButtons button:first-child {
+    background-color: #e8c1c1;
+    color: white;
+}
+
+.StartupButtons button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(196, 139, 159, 0.2);
+}
+
+.StartupButtons button:first-child:hover {
+    background-color: #dfb1b1;
+}
+
+.StartupButtons button:last-child:hover {
+    background-color: #f0d4d4;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
