@@ -3,6 +3,7 @@ import TaskItem from '../TaskItem/TaskItem';
 import TaskForm from '../TaskForm/TaskForm';
 import FilterBar from '../FilterBar/FilterBar';
 import SortMenu from '../SortMenu/SortMenu';
+import CategoryFilter from '../CategoryFilter/CategoryFilter'; 
 import './List.css';
 
 function List({ initialTasks = [], onUpdateTask }) {
@@ -21,7 +22,7 @@ function List({ initialTasks = [], onUpdateTask }) {
         setTasks(initialTasks);
     }, [initialTasks]);
 
-    // Filtrage et tri des tâches
+    //tri des tâches
     const getFilteredAndSortedTasks = () => {
         const oneWeekAgo = new Date();
         oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
@@ -36,18 +37,6 @@ function List({ initialTasks = [], onUpdateTask }) {
                 console.log(`Tâche ${task.title} filtrée: elle est marquée comme terminée`);
                 return false;
             }
-            
-            // Ne pas filtrer les tâches dont l'échéance est passée - on veut tout afficher
-            /*
-            if (task.date_echeance) {
-                const dueDate = new Date(task.date_echeance);
-                if (dueDate < oneWeekAgo && dueDate < new Date()) {
-                    console.log(`Tâche ${task.title} filtrée: échéance dépassée depuis plus d'une semaine`);
-                    return false;
-                }
-            }
-            */
-
             // Filtre par terme de recherche
             if (searchTerm.length >= 3 && !task.title.toLowerCase().includes(searchTerm.toLowerCase())) {
                 console.log(`Tâche ${task.title} filtrée: ne correspond pas au terme de recherche`);
@@ -65,25 +54,24 @@ function List({ initialTasks = [], onUpdateTask }) {
 
         console.log("Nombre de tâches après filtrage:", filtered.length);
 
-        // Tri des tâches - d'abord par statut (non terminées d'abord), puis par urgence, puis selon le critère choisi
+        // Tri des tâches
         filtered.sort((a, b) => {
             // Les tâches non terminées apparaissent d'abord
             if ((a.done || false) !== (b.done || false)) {
                 return (a.done || false) ? 1 : -1;
             }
 
-            // Parmi les tâches de même statut, les urgentes apparaissent en premier
+            //les urgentes apparaissent en premier
             if ((a.urgent || false) !== (b.urgent || false)) {
                 return (a.urgent || false) ? -1 : 1;
             }
             
-            // Ensuite appliquer le tri selon le critère choisi
+            //le tri apres urgentes
             switch (sortCriteria) {
                 case 'alpha':
                     return a.title.localeCompare(b.title);
                 case 'creation':
                     return new Date(b.date_creation) - new Date(a.date_creation);
-                // Dans le switch pour le tri, remplacer la partie incomplète
                 case 'dueDate':
                     if (!a.date_echeance) return 1;
                     if (!b.date_echeance) return -1;
@@ -122,7 +110,7 @@ function List({ initialTasks = [], onUpdateTask }) {
                 onUpdateTask(updatedTask);
             }
         } else {
-            // Création d'une nouvelle tâche
+            //nouvelle tâche
             const taskWithId = { 
                 ...newTask, 
                 id: Date.now(), 
@@ -210,6 +198,11 @@ function List({ initialTasks = [], onUpdateTask }) {
             )}
 
             <FilterBar onSearch={setSearchTerm} />
+            <CategoryFilter 
+                tasks={tasks} 
+                onCategoryFilter={handleCategoryFilter}
+                selectedCategory={selectedCategory}
+            />
 
             <div className="TaskList">
                 {filteredTasks.length > 0 ? (

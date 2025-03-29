@@ -1,0 +1,44 @@
+.CategoryFilter {
+    margin: 15px 0;
+}
+
+.CategoryFilter label {
+    display: block;
+    margin-bottom: 10px;
+    color: #7d5a5a;
+    font-weight: 500;
+}
+
+.CategoryChips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.CategoryChip {
+    background-color: #f8f2f4;
+    color: #c48b9f;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    border: 1px solid #f0d4d4;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.CategoryChip:hover {
+    background-color: #f0d4d4;
+    transform: translateY(-2px);
+}
+
+.CategoryChip.active {
+    background-color: #e8c1c1;
+    color: white;
+    box-shadow: 0 2px 8px rgba(196, 139, 159, 0.2);
+}
+
+.NoCategoriesText {
+    color: #bfa9a9;
+    font-style: italic;
+    font-size: 0.9rem;
+}

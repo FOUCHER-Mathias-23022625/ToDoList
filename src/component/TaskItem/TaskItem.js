@@ -4,7 +4,7 @@ import './TaskItem.css';
 function TaskItem({ task, onCategoryFilter, onEdit, onToggleUrgent, onToggleDone }) {
     const [expanded, setExpanded] = useState(false);
     
-    // Formater la date d'échéance pour un affichage plus lisible
+    // Formater la date 
     const formatDate = (dateString) => {
         if (!dateString) return "Non définie";
         const options = { year: 'numeric', month: 'short', day: 'numeric' };

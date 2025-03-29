@@ -7,7 +7,12 @@ function FilterBar({ onSearch }) {
     const handleSearch = (e) => {
         const value = e.target.value;
         setSearchTerm(value);
-        if (value.length >= 3) onSearch(value);
+        if (value.length >= 3) {
+            onSearch(value);
+        } else if (value.length === 0) {
+            // reset quand on supprime la barre de recherche
+            onSearch('');
+        }
     };
 
     return (

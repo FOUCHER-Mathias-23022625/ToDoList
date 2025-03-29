@@ -8,7 +8,7 @@ function TaskForm({ onClose, onSave, task = null }) {
     const [description, setDescription] = useState('');
     const [urgent, setUrgent] = useState(false);
 
-    // Initialiser les valeurs si une tâche est passée pour édition
+    // Pour edit 
     useEffect(() => {
         if (task) {
             setTitle(task.title || '');
@@ -24,8 +24,6 @@ function TaskForm({ onClose, onSave, task = null }) {
             alert('Le titre doit contenir au moins 3 caractères.');
             return;
         }
-        
-        // Traitement des catégories
         const categoriesList = categories
             .split(',')
             .map(cat => cat.trim())
